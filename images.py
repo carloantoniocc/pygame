@@ -3,7 +3,7 @@ import sys
 
 pygame.init()
 
-width= 400
+width= 800
 height= 500
 
 surface = pygame.display.set_mode((width, height)) #surface
@@ -19,16 +19,14 @@ white = pygame.Color(255,255,255)
 black = pygame.Color(0,0,0)
 rosado = pygame.Color(200,90,130)
 
-## Rectangulo 1
-## pygame.Rect(x,y,width,height)
-rect = pygame.Rect(100,150,120,60)
-rect.center = (width // 2, height // 2)
+## surface2 = pygame.Surface( (200,200) )
 
-## Rectangulo 2
-rect2 = (100,100,80,40)
+## la funcion load nos retornara una superficie
+codi = pygame.image.load('images/codi.png')
+rect = codi.get_rect()
+rect.center= (width // 2 , height // 2 )
 
-##TUPLAS
-my_color = (200,90,130)
+rectangulo = pygame.image.load('images/small_rectangle.png')
 
 while True:
 	for event in pygame.event.get():
@@ -36,26 +34,10 @@ while True:
 			pygame.quit()
 			sys.exit()
 
-	surface.fill(verde)
+	surface.fill(white)
 
-	## Objects
-	## draw
-	## 1.-Donde se pintara la figura
-	## 2.-De que color sera la figura
-	## Triangulo
-
-	pygame.draw.polygon(surface,black,
-				 ( (0,400), (100,300), (200,400) ))
-
-	## Pentagono
-	pygame.draw.polygon(surface,black, (
-		(146,0),
-		(291,106),
-		(236, 277),
-		(56,277),
-		(0,106)
-
-		))
-
+    ##  surface.blit(codi, (100,1) )
+	##surface.blit(codi, (100,100) )
+	surface.blit(codi, rect )
 
 	pygame.display.update()
